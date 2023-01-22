@@ -10,3 +10,21 @@
 .data{
    color: red;
 }
+
+.counts{
+    background-color: black;
+    position: sticky;
+    top: 0px;
+    right: 0px;
+    width: 100%;
+    height: fit-content;
+    z-index: 9;color:
+     red;
+     text-align: center;
+}
+
+#tracker{
+   color: red;
+   font-size: large;
+   font-weight: bold;
+}
