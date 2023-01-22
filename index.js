@@ -1,4 +1,6 @@
 var map = L.map('map').setView([51.505, -0.09], 13);
+var tracker = document.getElementById('tracker');
+var counter = 0;
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
@@ -6,7 +8,9 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 map.on('click', function (e) {
-
+    counter = counter + 1;
+    console.log(counter);
+    tracker.innerHTML = counter;
     let url = `https://api.openweathermap.org/data/2.5/weather?lat=${e.latlng.lat}&lon=${e.latlng.lng}&appid=681e0ec432154233d6bbc62405872621`
     fetch(url)
         .then((res) => res.json())
@@ -26,7 +30,6 @@ map.on('click', function (e) {
                 .openOn(map)
         )
         .catch((e) => console.log(e))
-
         L.marker([e.latlng.lat, e.latlng.lng]).addTo(map)
 });
 
